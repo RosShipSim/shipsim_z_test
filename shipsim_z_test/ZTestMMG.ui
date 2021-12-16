@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ZTestMMG</class>
+ <widget class="QMainWindow" name="ZTestMMG">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>665</width>
+    <height>238</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="ZstartButton">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>40</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Z TEST START</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="ZpropellerSlider">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>40</y>
+      <width>51</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>150</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ZpropellerLabel">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>20</y>
+      <width>221</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Propeller Shaft Revolution [rps]</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ZrudderLabel0">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>20</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Z Test Rudder Angle [deg]</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ZquitButton">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>150</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>QUIT</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="ZrudderBox">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>70</y>
+      <width>51</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>-45</number>
+    </property>
+    <property name="maximum">
+     <number>45</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ZrudderLabel2">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>70</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>degree</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="ZpropellerBox">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>110</y>
+      <width>61</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>150</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ZpropellerLabel2">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>110</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>rps</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>ZstartButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZTestMMG</receiver>
+   <slot>clicked_start()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>492</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ZquitButton</sender>
+   <signal>released()</signal>
+   <receiver>ZTestMMG</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>555</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>515</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ZpropellerSlider</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>ZTestMMG</receiver>
+   <slot>change_shaft_revolution()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>279</x>
+     <y>191</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>191</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ZrudderBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ZTestMMG</receiver>
+   <slot>change_rudder_angle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>153</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ZpropellerSlider</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>ZpropellerBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>283</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ZpropellerBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ZpropellerSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>270</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ZpropellerBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ZTestMMG</receiver>
+   <slot>change_shaft_revolution()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>391</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>428</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>clicked_start()</slot>
+  <slot>clicked_stop()</slot>
+  <slot>change_rudder_angle()</slot>
+  <slot>change_shaft_revolution()</slot>
+ </slots>
+</ui>
